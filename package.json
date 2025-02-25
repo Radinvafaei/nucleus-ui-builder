@@ -1,0 +1,11 @@
+{
+  "name": "react-nucleus",
+  "packageManager": "yarn@4.6.0",
+  "dependencies": {
+    "typescript": "^5.7.3",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5"
+  }
+}
