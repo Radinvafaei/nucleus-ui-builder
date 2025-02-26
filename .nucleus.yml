@@ -1,0 +1,76 @@
+settings:
+  rootDirectory: "src/components"  # Default root directory for components
+  useStorybook: true  # Whether to generate Storybook files
+
+templates:
+  components:
+    files:
+      - name: "{{componentName}}.tsx"
+        content: |
+          import React from 'react';
+          import { I{{componentName}}Props } from './interface';
+
+          const {{componentName}}: FC<I{{componentName}}Props> = ({}) => {
+            return <div>{{componentName}}</div>;
+          };
+
+          export default {{componentName}};
+      - name: "interface.ts"
+        content: |
+          export interface I{{componentName}}Props {}
+      - name: "index.ts"
+        content: |
+          export { default } from './{{componentName}}';
+          export * from './interface';
+  provider:
+    files:
+      - name: "{{componentName}}Provider.tsx"
+        content: |
+          import React, { createContext, useContext } from 'react';
+          
+          const {{componentName}}Context = createContext({});
+          export const use{{componentName}} = () => useContext({{componentName}}Context);
+          
+          const {{componentName}}Provider: React.FC = ({ children }) => {
+            return (
+              <{{componentName}}Context.Provider value={{}}>
+                {children}
+              </{{componentName}}Context.Provider>
+            );
+          };
+          
+          export default {{componentName}}Provider;
+  hook:
+    files:
+      - name: "use{{componentName}}.ts"
+        content: |
+          import { useState, useEffect } from 'react';
+          
+          const use{{componentName}} = () => {
+            const [state, setState] = useState(null);
+          
+            useEffect(() => {
+              // Logic here
+            }, []);
+          
+            return state;
+          };
+          
+          export default use{{componentName}};
+  pages:
+    files:
+      - name: ".ts"
+        content: |
+          import { useState, useEffect } from 'react';
+          
+          const use{{componentName}} = () => {
+            const [state, setState] = useState(null);
+          
+            useEffect(() => {
+              // Logic here
+            }, []);
+          
+            return state;
+          };
+          
+          export default use{{componentName}};

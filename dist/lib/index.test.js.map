@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../lib/index.test.ts"],"sourcesContent":["describe('test', () => {\n    it('Should return true', () => {\n        expect(true).toBe(true);\n    })\n})\n"],"names":["describe","it","expect","toBe"],"mappings":";AAAAA,SAAS,QAAQ;IACbC,GAAG,sBAAsB;QACrBC,OAAO,MAAMC,IAAI,CAAC;IACtB;AACJ"}
