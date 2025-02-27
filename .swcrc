@@ -13,5 +13,8 @@
   "module": {
     "type": "commonjs"
   },
-  "sourceMaps": true
+  "sourceMaps": true,
+  "exclude": [
+    "./lib/**/.*.test.ts$",
+  ]
 }
