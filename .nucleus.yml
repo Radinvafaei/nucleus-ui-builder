@@ -1,9 +1,9 @@
 settings:
-  rootDirectory: "src/components"  # Default root directory for components
-  useStorybook: true  # Whether to generate Storybook files
+  rootDirectory: "src/"  # Default root directory for components
 
 templates:
-  components:
+  component:
+    extensions: ['withJest', 'withCypress', 'withStorybook'],
     files:
       - name: "{{componentName}}.tsx"
         content: |
@@ -22,24 +22,29 @@ templates:
         content: |
           export { default } from './{{componentName}}';
           export * from './interface';
-  provider:
-    files:
-      - name: "{{componentName}}Provider.tsx"
+      - name: "{{componentName}}.test.ts"
+        condition: "withJest"
         content: |
-          import React, { createContext, useContext } from 'react';
+          import { render } from '@testing-library/react';
+          import {{componentName}} from './{{componentName}}';
           
-          const {{componentName}}Context = createContext({});
-          export const use{{componentName}} = () => useContext({{componentName}}Context);
-          
-          const {{componentName}}Provider: React.FC = ({ children }) => {
-            return (
-              <{{componentName}}Context.Provider value={{}}>
-                {children}
-              </{{componentName}}Context.Provider>
-            );
-          };
-          
-          export default {{componentName}}Provider;
+          test('renders {{componentName}} component', () => {
+            const { getByText } = render(<{{componentName}} />);
+            expect(getByText('{{componentName}}')).toBeInTheDocument();
+          });
+      - name: "{{componentName}}.stories.tsx"
+        condition: "withStorybook"
+        content: |
+            import { Meta, StoryObj } from '@storybook/react';
+            import {{componentName}} from './{{componentName}}';
+            
+            const meta: Meta<typeof {{componentName}}> = {
+              title: 'Components/{{componentName}}',
+              component: {{componentName}},
+            };
+            
+            export default meta;
+            type Story = StoryObj<typeof meta>;
   hook:
     files:
       - name: "use{{componentName}}.ts"
@@ -57,20 +62,10 @@ templates:
           };
           
           export default use{{componentName}};
-  pages:
-    files:
-      - name: ".ts"
+      - name: "interface.ts"
         content: |
-          import { useState, useEffect } from 'react';
-          
-          const use{{componentName}} = () => {
-            const [state, setState] = useState(null);
-          
-            useEffect(() => {
-              // Logic here
-            }, []);
-          
-            return state;
-          };
-          
-          export default use{{componentName}};
+          export interface IUse{{componentName}}Args {}
+      - name: "index.ts"
+        content: |
+          export { default } from './use{{componentName}}';
+          export * from './interface';
