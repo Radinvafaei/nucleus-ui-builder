@@ -11,8 +11,29 @@ const config: Config = {
   coverageDirectory: `coverage`,
   coverageProvider: `v8`,
   notify: true,
-  preset: `ts-jest`,
+  transform: {
+    '^.+\\.ts?$': [
+      `ts-jest`,
+      {
+        diagnostics: {
+          ignoreCodes: [1343],
+        },
+        astTransformers: {
+          before: [
+            {
+              path: `node_modules/ts-jest-mock-import-meta`,
+              options: {
+                metaObjectReplacement: { url: `https://www.url.com` },
+              },
+            },
+          ],
+        },
+      },
+    ],
+  },
   testEnvironment: `node`,
+  preset: `ts-jest`,
+  extensionsToTreatAsEsm: [`.ts`],
   testPathIgnorePatterns: [`/node_modules/`, `/dist/`],
 };
 

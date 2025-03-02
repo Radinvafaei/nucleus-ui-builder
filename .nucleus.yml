@@ -1,71 +1,26 @@
 settings:
-  rootDirectory: "src/"  # Default root directory for components
-
+  rootDirectory: ./src
 templates:
   component:
-    extensions: ['withJest', 'withCypress', 'withStorybook'],
+    extensions: []
     files:
-      - name: "{{componentName}}.tsx"
-        content: |
-          import React from 'react';
-          import { I{{componentName}}Props } from './interface';
+      - name: '{{componentName}}.tsx'
+        content: |2-
 
-          const {{componentName}}: FC<I{{componentName}}Props> = ({}) => {
-            return <div>{{componentName}}</div>;
-          };
+                        import React from 'react';
+                        import { I{{componentName}}Props } from './interface';
 
-          export default {{componentName}};
-      - name: "interface.ts"
-        content: |
-          export interface I{{componentName}}Props {}
-      - name: "index.ts"
-        content: |
-          export { default } from './{{componentName}}';
-          export * from './interface';
-      - name: "{{componentName}}.test.ts"
-        condition: "withJest"
-        content: |
-          import { render } from '@testing-library/react';
-          import {{componentName}} from './{{componentName}}';
-          
-          test('renders {{componentName}} component', () => {
-            const { getByText } = render(<{{componentName}} />);
-            expect(getByText('{{componentName}}')).toBeInTheDocument();
-          });
-      - name: "{{componentName}}.stories.tsx"
-        condition: "withStorybook"
-        content: |
-            import { Meta, StoryObj } from '@storybook/react';
-            import {{componentName}} from './{{componentName}}';
-            
-            const meta: Meta<typeof {{componentName}}> = {
-              title: 'Components/{{componentName}}',
-              component: {{componentName}},
-            };
-            
-            export default meta;
-            type Story = StoryObj<typeof meta>;
-  hook:
-    files:
-      - name: "use{{componentName}}.ts"
-        content: |
-          import { useState, useEffect } from 'react';
-          
-          const use{{componentName}} = () => {
-            const [state, setState] = useState(null);
-          
-            useEffect(() => {
-              // Logic here
-            }, []);
-          
-            return state;
-          };
-          
-          export default use{{componentName}};
-      - name: "interface.ts"
-        content: |
-          export interface IUse{{componentName}}Args {}
-      - name: "index.ts"
-        content: |
-          export { default } from './use{{componentName}}';
-          export * from './interface';
+                        const {{componentName}}: React.FC<I{{componentName}}Props> = ({}) => {
+                          return <div>{{componentName}}</div>;
+                        };
+
+                        export default {{componentName}};
+                      
+      - name: interface.ts
+        content: export interface I{{componentName}}Props {};
+      - name: index.ts
+        content: |2-
+
+                        export { default } from './{{componentName}}';
+                        export * from './interface';
+                      
