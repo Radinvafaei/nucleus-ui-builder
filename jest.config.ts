@@ -39,10 +39,11 @@ const config: Config = {
   moduleNameMapper: pathsToModuleNameMapper(
     {
       '@bootstrap/*': [`bootstrap/*`],
-      '@builders/*': [`builders/*`],
       '@interfaces/*': [`interfaces/*`],
       '@commands/*': [`commands/*`],
       '@loader/*': [`loader/*`],
+      '@cli/*': [`cli/*`],
+      '@compiler/*': [`compiler/*`],
     },
     {
       prefix: `<rootDir>/lib/`,

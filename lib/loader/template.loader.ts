@@ -26,7 +26,7 @@ export default class TemplateLoader {
       const fileContents = fs.readFileSync(this.configPath, `utf8`);
       this._config = this.loader.load(fileContents) as unknown as IConfig;
     } catch (error) {
-      console.error(`Caught error:`, { error }); // ✅ Debugging line
+      console.error(`Caught error:`, { error });
       throw new Error(`File not found: .nucleus.yml`);
     }
   }

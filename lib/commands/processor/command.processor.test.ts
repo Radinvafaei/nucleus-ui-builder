@@ -1,6 +1,6 @@
-import CommandProcessor from '@commands/command.processor';
-import { IPrompt } from '@interfaces/config.interface';
-import TemplateLoader from '@loader/template.loader';
+import CommandProcessor from './command.processor';
+import { IPrompt } from '../../interfaces/config.interface';
+import TemplateLoader from '../../loader/template.loader';
 import { Arguments } from 'yargs';
 describe(`CommandProcessor`, () => {
   let commandProcessor: CommandProcessor;

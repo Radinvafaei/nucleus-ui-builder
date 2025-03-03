@@ -14,10 +14,11 @@
     "baseUrl": "./lib",
     "paths": {
       "@bootstrap/*": ["bootstrap/*"],
-      "@builders/*": ["builders/*"],
       "@interfaces/*": ["interfaces/*"],
       "@commands/*": ["commands/*"],
-      "@loader/*": ["loader/*"]
+      "@loader/*": ["loader/*"],
+      "@cli/*": ["cli/*"],
+      "@compiler/*": ["compiler/*"]
     }
   },
   "include": ["lib/**/*.ts"],
