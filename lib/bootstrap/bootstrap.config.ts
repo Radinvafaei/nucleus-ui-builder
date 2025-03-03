@@ -1,12 +1,13 @@
 import * as fs from 'fs';
 import * as yaml from 'js-yaml';
-import { IConfig } from './interface';
+import { IConfig } from '@interfaces/config.interface';
 
 export default class BootstrapConfig {
   private static defaultConfig: IConfig = {
     settings: {
       rootDirectory: `./src`,
     },
+    categories: [{ name: `Atom`, path: `/atom` }],
     templates: {
       component: {
         extensions: [],

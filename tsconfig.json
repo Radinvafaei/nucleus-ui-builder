@@ -11,6 +11,14 @@
     "declaration": true,
     "declarationDir": "dist/types",
     "moduleResolution": "node",
+    "baseUrl": "./lib",
+    "paths": {
+      "@bootstrap/*": ["bootstrap/*"],
+      "@builders/*": ["builders/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@commands/*": ["commands/*"],
+      "@loader/*": ["loader/*"]
+    }
   },
   "include": ["lib/**/*.ts"],
   "exclude": ["**/*.test.ts", "**/*.spec.ts", "node_modules", "dist"],

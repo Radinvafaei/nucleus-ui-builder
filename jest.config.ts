@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest';
+import { pathsToModuleNameMapper } from 'ts-jest';
 
 const config: Config = {
   clearMocks: true,
@@ -35,6 +36,19 @@ const config: Config = {
   preset: `ts-jest`,
   extensionsToTreatAsEsm: [`.ts`],
   testPathIgnorePatterns: [`/node_modules/`, `/dist/`],
+  moduleNameMapper: pathsToModuleNameMapper(
+    {
+      '@bootstrap/*': [`bootstrap/*`],
+      '@builders/*': [`builders/*`],
+      '@interfaces/*': [`interfaces/*`],
+      '@commands/*': [`commands/*`],
+      '@loader/*': [`loader/*`],
+    },
+    {
+      prefix: `<rootDir>/lib/`,
+    },
+  ),
+  rootDir: `.`,
 };
 
 export default config;

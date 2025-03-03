@@ -5,7 +5,7 @@ import BootstrapConfig from './bootstrap.config';
 jest.mock(`fs`);
 jest.mock(`js-yaml`);
 
-describe(`BootstrapConfig`, () => {
+describe(`Bootstrap: BootstrapConfig`, () => {
   const mockWriteFileSync = fs.writeFileSync as jest.Mock;
   const mockExistsSync = fs.existsSync as jest.Mock;
   const mockYamlDump = yaml.dump as jest.Mock;

@@ -1,5 +1,8 @@
 settings:
   rootDirectory: ./src
+categories:
+  - name: Atom
+    path: /atom
 templates:
   component:
     extensions: []

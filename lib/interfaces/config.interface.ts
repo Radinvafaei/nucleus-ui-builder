@@ -1,11 +1,17 @@
 export interface IConfig {
   settings: ISettings;
+  categories: ICategory[];
   templates: {
     [key: string]: {
       extensions?: string[];
       files: IFile[];
     };
   };
+}
+
+export interface ICategory {
+  name: string;
+  path: string;
 }
 
 export interface ISettings {
@@ -16,4 +22,11 @@ export interface IFile {
   name: string;
   condition?: string;
   content: string;
+}
+
+export interface IPrompt {
+  templateName: string;
+  category: string;
+  subcategory?: string;
+  extensions?: string;
 }
