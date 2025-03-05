@@ -1,6 +1,14 @@
 {
   "name": "nucleus-ui-builder",
   "version": "0.0.3",
+  "author": {
+    "name": "Radin Vafaei",
+    "email": "radin.vafaei@icloud.com"
+  },
+  "repository": {
+    "url": "https://github.com/Radinvafaei/react-nucleus",
+    "type": "git"
+  },
   "license": "MIT",
   "packageManager": "yarn@4.6.0",
   "main": "dist/cjs/lib/index.js",
@@ -46,27 +54,26 @@
     "build:types": "tsc --emitDeclarationOnly --outDir dist/types"
   },
   "bin": "./dist/cjs/lib/index.js",
+  "private": false,
   "keywords": [
-    "ui-kit",
     "design-system",
     "component-library",
     "frontend",
     "react-components",
     "ui-framework",
-    "typescript",
     "yargs-cli",
     "scaffolding",
     "boilerplate",
     "code-generator",
     "cli-tool",
     "developer-tools",
-    "open-source",
     "modern-ui",
     "nucleus",
     "nextjs",
     "react",
     "vue",
     "quasar",
-    "javascript"
+    "javascript",
+    "typescript"
   ]
 }
