@@ -5486,6 +5486,8 @@ __metadata:
     typescript: "npm:^5.7.3"
     typescript-eslint: "npm:^8.25.0"
     yargs: "npm:^17.7.2"
+  bin:
+    react-nucleus: ./bin.js
   languageName: unknown
   linkType: soft
 

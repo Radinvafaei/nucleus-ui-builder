@@ -18,7 +18,7 @@ beforeAll(() => {
       fs.rmSync(OUTPUT_DIR, { recursive: true, force: true });
     }
     const result = execSync(
-      `node dist/esm/lib/index.js scaffold component Input in Atom Inputs storybook`,
+      `node dist/cjs/lib/index.js scaffold component Input in Atom Inputs storybook`,
       { encoding: `utf-8`, stdio: `inherit` },
     );
   } catch (error) {
