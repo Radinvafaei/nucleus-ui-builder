@@ -64,6 +64,9 @@
     "modern-ui",
     "nucleus",
     "nextjs",
+    "react",
+    "vue",
+    "quasar",
     "javascript"
   ]
 }
