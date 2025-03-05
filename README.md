@@ -9,7 +9,6 @@
 - **Customizable Templates:** Define your own component structures with YAML configuration.
 - **Supports Extensions:** Easily add Storybook, Jest, or other extensions.
 - **Works with Both ESM & CJS:** Compatible with different module systems.
-- **Dependency Injection & Design Patterns:** Built with a structured and maintainable architecture.
 - **CLI-powered Scaffolding:** Generate files and directories with a single command.
 
 ---
@@ -120,24 +119,54 @@ yarn build
 ### Run tests:
 
 ```sh
-yarn test
+yarn test:watch
 ```
-
----
-
-## 📜 License
-
-MIT License. See [LICENSE](./LICENSE) for details.
 
 ---
 
 ## 📝 Contributing
 
-Pull requests and feature requests are welcome! Feel free to open an issue if you encounter any problems.
+Pull requests and feature requests are welcome! However, please follow these guidelines to ensure code quality and maintainability:
 
----
+### 🔹 Code Standards
+- Ensure your code follows the **existing project structure** and **design patterns** (e.g., Adapter, Builder, Command).
+- Keep the code **clean and modular**, avoiding unnecessary complexity.
+- Use **dependency injection** wherever applicable.
+- Avoid placing helper functions inside `commands/` or `core/`—instead, use proper **design patterns**.
+
+### 🧪 Testing
+- All new features **must include tests** (Unit & Integration).
+- We use **Jest** for testing; ensure your code has at least **90% test coverage**.
+- Run tests before submitting your PR:
+  ```sh
+  yarn test
+  ```
+
+### 🚀 Submitting a PR
+1. **Fork** the repository and create a feature branch:
+   ```sh
+   git checkout -b feature/my-new-feature
+   ```
+2. Ensure all tests pass:
+   ```sh
+   yarn test
+   ```
+3. Format the code using Prettier & ESLint:
+   ```sh
+   yarn lint
+   ```
+4. Commit changes with a meaningful message:
+   ```sh
+   git commit -m "✨ Added support for XYZ"
+   ```
+5. Push to your fork and submit a **Pull Request (PR)**.
+
+Following these steps ensures that contributions maintain a **high standard** and integrate smoothly into the project. 🚀🔥
+
+## 📜 License
+
+MIT License. See [LICENSE](./LICENSE) for details.
 
 ## 📌 Author
 
 Created with ❤️ by **Radin Vafaei**
-

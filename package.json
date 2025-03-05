@@ -1,6 +1,7 @@
 {
   "name": "react-nucleus",
   "version": "0.0.1",
+  "license": "MIT",
   "packageManager": "yarn@4.6.0",
   "main": "dist/cjs/lib/index.js",
   "module": "dist/esm/lib/index.js",
