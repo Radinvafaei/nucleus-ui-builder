@@ -2,13 +2,13 @@
   "name": "react-nucleus",
   "version": "0.0.1",
   "packageManager": "yarn@4.6.0",
-  "type": "module",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.mjs",
+  "main": "dist/cjs/lib/index.js",
+  "module": "dist/esm/lib/index.js",
   "types": "dist/types/index.d.ts",
+  "type": "module",
   "exports": {
-    "import": "./dist/esm/index.mjs",
-    "require": "./dist/cjs/index.cjs"
+    "import": "./dist/esm/lib/index.js",
+    "require": "./dist/cjs/lib/index.js"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
@@ -41,8 +41,11 @@
     "postinstall": "node ./dist/esm/lib/bootstrap/bootstrap.config.js",
     "build": "yarn build:swc && yarn build:types",
     "build:swc": "yarn build:esm && yarn build:cjs",
-    "build:esm": "swc lib -d dist/esm --config-file .swcrc-esm",
-    "build:cjs": "swc lib -d dist/cjs --config-file .swcrc",
+    "build:esm": "swc lib -d dist/esm --config-file .swcrc-esm --ignore lib/**/*.test.ts",
+    "build:cjs": "swc ./lib -d dist/cjs --config-file .swcrc --ignore ./**/*.test.ts",
     "build:types": "tsc --emitDeclarationOnly --outDir dist/types"
+  },
+  "bin": {
+    "react-nucleus": "./bin.js"
   }
 }

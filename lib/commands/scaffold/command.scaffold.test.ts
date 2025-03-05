@@ -25,7 +25,7 @@ describe(`CommandScaffold`, () => {
 
   it(`should define the correct command structure`, () => {
     expect(commandScaffold.command).toBe(
-      `scaffold <templateName> in <category> [subcategory] [extensions]`,
+      `scaffold <templateName> <componentName> in <category> [subcategory] [extensions]`,
     );
     expect(commandScaffold.describe).toBe(
       `Scaffold a new component using a predefined template`,
@@ -34,7 +34,7 @@ describe(`CommandScaffold`, () => {
 
   it(`should configure the Yargs builder correctly`, () => {
     commandScaffold.builder(mockCli);
-    expect(mockCli.positional).toHaveBeenCalledTimes(3);
+    expect(mockCli.positional).toHaveBeenCalledTimes(4);
     expect(mockCli.option).toHaveBeenCalledTimes(1);
   });
 

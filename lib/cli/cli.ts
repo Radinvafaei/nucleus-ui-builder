@@ -14,9 +14,14 @@ export default class CLI {
   }
 
   public run(): void {
+    console.log(`🚀 Running CLI...`);
     yargs(hideBin(process.argv))
-      .command(this.scaffoldCommand)
-      .demandCommand(2, `You need at least two commands before moving on`)
+      .command({
+        ...this.scaffoldCommand,
+        builder: this.scaffoldCommand.builder.bind(this.scaffoldCommand),
+        handler: this.scaffoldCommand.handler.bind(this.scaffoldCommand),
+      })
+      .demandCommand(3, `You need at least three commands before moving on`)
       .help()
       .parse();
   }

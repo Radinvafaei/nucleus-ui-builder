@@ -1,29 +1,52 @@
 settings:
-  rootDirectory: ./src
+  rootDirectory: ./output
 categories:
   - name: Atom
     path: /atom
 templates:
   component:
-    extensions: []
+    extensions: ['storybook', 'jest']
     files:
       - name: '{{componentName}}.tsx'
         content: |2-
 
-                        import React from 'react';
-                        import { I{{componentName}}Props } from './interface';
+                  import React from 'react';
+                  import { I{{componentName}}Props } from './interface';
 
-                        const {{componentName}}: React.FC<I{{componentName}}Props> = ({}) => {
-                          return <div>{{componentName}}</div>;
-                        };
+                  const {{componentName}}: React.FC<I{{componentName}}Props> = ({}) => {
+                    return <div>{{componentName}}</div>;
+                  };
 
-                        export default {{componentName}};
-                      
+                  export default {{componentName}};
+
       - name: interface.ts
         content: export interface I{{componentName}}Props {};
       - name: index.ts
         content: |2-
 
-                        export { default } from './{{componentName}}';
-                        export * from './interface';
-                      
+                  export { default } from './{{componentName}}';
+                  export * from './interface';
+
+      - name: '{{componentName}}.storybook.tsx'
+        condition: storybook
+        content: |2-
+
+                  import React from 'react';
+                  import { ComponentMeta, ComponentStory } from '@storybook/react';
+                  import {{componentName}} from './{{componentName}}';
+
+                  export default {
+                    title: '{{category}}/{{subcategory}}/{{componentName}}',
+                    component: {{componentName}},
+                    argTypes: {
+                      // Add controls for props if needed
+                    },
+                  } as ComponentMeta<typeof {{componentName}}>;
+
+                  const Template: ComponentStory<typeof {{componentName}}> = (args) => <{{componentName}} {...args} />;
+
+                  export const Default = Template.bind({});
+                  Default.args = {
+                    // Define default props here
+                  };
+

@@ -4,7 +4,7 @@ import CommandProcessor from '@commands/processor/command.processor';
 import { IPrompt } from '@interfaces/config.interface';
 
 export default class CommandScaffold implements CommandModule {
-  command = `scaffold <templateName> in <category> [subcategory] [extensions]`;
+  command = `scaffold <templateName> <componentName> in <category> [subcategory] [extensions]`;
   describe = `Scaffold a new component using a predefined template`;
   private schema: CommandSchemaBuilder;
 
@@ -16,10 +16,17 @@ export default class CommandScaffold implements CommandModule {
         type: `string`,
         demandOption: true,
       })
+      .addPositional(`componentName`, {
+        alias: `component`,
+        describe: `Template name (e.g., Input, Button)`,
+        type: `string`,
+        demandOption: true,
+      })
       .addPositional(`category`, {
         alias: `c`,
         describe: `Category where the component will be placed`,
         type: `string`,
+        demandOption: true,
       })
       .addPositional(`subcategory`, {
         alias: `s`,

@@ -29,8 +29,8 @@ describe(`CLI: core`, () => {
 
     expect(mockYargs.command).toHaveBeenCalledWith(expect.anything());
     expect(mockYargs.demandCommand).toHaveBeenCalledWith(
-      2,
-      `You need at least two commands before moving on`,
+      3,
+      `You need at least three commands before moving on`,
     );
     expect(mockYargs.help).toHaveBeenCalled();
     expect(mockYargs.parse).toHaveBeenCalled();

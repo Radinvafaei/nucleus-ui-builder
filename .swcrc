@@ -5,6 +5,16 @@
     "parser": {
       "syntax": "typescript",
     },
+    "baseUrl": "./lib",
+    "paths": {
+      "@bootstrap/*": ["bootstrap/*"],
+      "@interfaces/*": ["interfaces/*"],
+      "@commands/*": ["commands/*"],
+      "@loader/*": ["loader/*"],
+      "@cli/*": ["cli/*"],
+      "@compiler/*": ["compiler/*"],
+      "@resolvers/*": ["resolvers/*"]
+    },
     "transform": {
       "optimizer": {
         "simplify": true
@@ -12,10 +22,12 @@
     }
   },
   "module": {
-    "type": "commonjs"
+    "type": "commonjs",
+    "strict": true,
+    "strictMode": true,
+    "noInterop": false,
+    "resolveFully": true
   },
   "sourceMaps": true,
-  "exclude": [
-    "./lib/**/.*.test.ts$",
-  ]
+  "exclude": ["node_modules", "/**/*.test.ts$", "output"],
 }

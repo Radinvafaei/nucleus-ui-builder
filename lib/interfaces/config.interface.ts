@@ -26,6 +26,7 @@ export interface IFile {
 
 export interface IPrompt {
   templateName: string;
+  componentName: string;
   category: string;
   subcategory?: string;
   extensions?: string;

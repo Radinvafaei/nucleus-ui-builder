@@ -35,7 +35,7 @@ const config: Config = {
   testEnvironment: `node`,
   preset: `ts-jest`,
   extensionsToTreatAsEsm: [`.ts`],
-  testPathIgnorePatterns: [`/node_modules/`, `/dist/`],
+  testPathIgnorePatterns: [`/node_modules/`, `/dist/`, `/output/`],
   moduleNameMapper: pathsToModuleNameMapper(
     {
       '@bootstrap/*': [`bootstrap/*`],
@@ -44,6 +44,7 @@ const config: Config = {
       '@loader/*': [`loader/*`],
       '@cli/*': [`cli/*`],
       '@compiler/*': [`compiler/*`],
+      '@resolvers/*': [`resolvers/*`],
     },
     {
       prefix: `<rootDir>/lib/`,

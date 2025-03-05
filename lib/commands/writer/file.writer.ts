@@ -9,6 +9,6 @@ export default class FileWriter {
 
   executeAll(): void {
     this.commands.forEach((command) => command.execute());
-    this.commands = []; // Clear the queue after execution
+    this.commands = [];
   }
 }

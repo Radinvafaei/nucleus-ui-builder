@@ -18,7 +18,8 @@
       "@commands/*": ["commands/*"],
       "@loader/*": ["loader/*"],
       "@cli/*": ["cli/*"],
-      "@compiler/*": ["compiler/*"]
+      "@compiler/*": ["compiler/*"],
+      "@resolvers/*": ["resolvers/*"]
     }
   },
   "include": ["lib/**/*.ts"],

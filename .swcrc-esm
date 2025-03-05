@@ -1,21 +1,31 @@
 {
   "$schema": "https://swc.rs/schema.json",
   "jsc": {
-    "target": "es2020",
-    "parser": {
-      "syntax": "typescript",
-    },
-    "transform": {
-      "optimizer": {
-        "simplify": true
+      "target": "es2020",
+      "parser": {
+        "syntax": "typescript",
+      },
+      "baseUrl": "./lib",
+      "paths": {
+        "@bootstrap/*": ["bootstrap/*"],
+        "@interfaces/*": ["interfaces/*"],
+        "@commands/*": ["commands/*"],
+        "@loader/*": ["loader/*"],
+        "@cli/*": ["cli/*"],
+        "@compiler/*": ["compiler/*"],
+        "@resolvers/*": ["resolvers/*"]
+      },
+      "transform": {
+        "optimizer": {
+          "simplify": true,
+        },
       }
-    }
-  },
+    },
   "module": {
-    "type": "es6"
+    "type": "es6",
+    "importInterop": "node",
+    "resolveFully": true
   },
   "sourceMaps": true,
-  "exclude": [
-    "./lib/**/.*.test.ts$",
-  ]
+  "exclude": ["node_modules", "/**/*.test.ts$", "output"],
 }

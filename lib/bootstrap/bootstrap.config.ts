@@ -36,6 +36,30 @@ export default class BootstrapConfig {
               export * from './interface';
             `,
           },
+          {
+            name: `{{componentName}}.test.tsx`,
+            condition: `storybook`,
+            content: `
+            import React from 'react';
+            import { ComponentMeta, ComponentStory } from '@storybook/react';
+            import {{componentName}} from './{{componentName}}';
+
+            export default {
+              title: '{{category}}/{{subcategory}}/{{componentName}}',
+              component: {{componentName}},
+              argTypes: {
+                // Add controls for props if needed
+              },
+            } as ComponentMeta<typeof {{componentName}}>;
+
+            const Template: ComponentStory<typeof {{componentName}}> = (args) => <{{componentName}} {...args} />;
+
+            export const Default = Template.bind({});
+            Default.args = {
+              // Define default props here
+            };
+            `,
+          },
         ],
       },
     },
