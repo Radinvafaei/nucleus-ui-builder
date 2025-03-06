@@ -1,6 +1,7 @@
-# React Nucleus
+# Nucleus UI Builder
 
-**React Nucleus** is a powerful CLI tool designed to scaffold React components, hooks, and pages efficiently based on customizable templates. It supports both **ESM** and **CJS** builds and provides an extensible architecture for different project structures.
+
+**Nucleus UI Builder** is a powerful CLI tool designed to scaffold React components, hooks, and pages efficiently based on customizable templates. It supports both **ESM** and **CJS** builds and provides an extensible architecture for different project structures.
 
 ---
 
@@ -18,21 +19,21 @@
 ### Install Globally:
 
 ```sh
-npm install -g react-nucleus
+npm install -g nucleus-ui-builder
 ```
 
 ```sh
-yarn global add react-nucleus
+yarn global add nucleus-ui-builder
 ```
 
 ### Install Locally (for project-specific usage):
 
 ```sh
-npm install react-nucleus --save-dev
+npm install nucleus-ui-builder --save-dev
 ```
 
 ```sh
-yarn add react-nucleus --dev
+yarn add nucleus-ui-builder --dev
 ```
 
 ---
